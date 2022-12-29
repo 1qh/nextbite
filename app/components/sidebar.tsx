@@ -8,9 +8,14 @@ const Sidebar: FC<PropsWithChildren<Record<string, unknown>>> = function ({ chil
 
 	return (
 		<div
-			className={classNames('fixed overflow-hidden top-16 h-content z-10 lg:sticky lg:!block', {
-				hidden: !isSidebarOpenOnSmallScreens
-			})}>
+			className={classNames(
+				'fixed overflow-hidden ml-2 top-20 h-content z-10 lg:sticky lg:!block',
+				{ hidden: !isSidebarOpenOnSmallScreens },
+				{
+					'shadow-lg shadow-gray-300 dark:shadow-gray-500 dark:shadow-lg rounded-xl':
+						isSidebarOpenOnSmallScreens
+				}
+			)}>
 			<FlowbiteSidebar className="dark:bg-black -mx-3 -my-4">{children}</FlowbiteSidebar>
 		</div>
 	)

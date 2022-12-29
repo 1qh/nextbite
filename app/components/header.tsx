@@ -7,13 +7,13 @@ const Header: FC<Record<string, never>> = function () {
 	const { isOpenOnSmallScreens, isPageWithSidebar, setOpenOnSmallScreens } = useSidebarContext()
 
 	return (
-		<header className="sticky top-0 z-20">
-			<Navbar fluid>
+		<header className="sticky top-0 z-20 dark:bg-black px-2">
+			<Navbar fluid className="rounded-[32px] shadow-lg shadow-gray-300 dark:shadow-gray-600">
 				{isPageWithSidebar && (
 					<button
 						aria-controls="sidebar"
 						aria-expanded="true"
-						className="mr-2 cursor-pointer rounded p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700 dark:focus:ring-gray-700 lg:hidden"
+						className="rounded-full mr-2 cursor-pointer p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700 dark:focus:ring-gray-700 lg:hidden"
 						onClick={() => setOpenOnSmallScreens(!isOpenOnSmallScreens)}>
 						{isOpenOnSmallScreens ? (
 							<svg
@@ -48,7 +48,7 @@ const Header: FC<Record<string, never>> = function () {
 				</Navbar.Brand>
 				<div className="flex md:order-2">
 					<Navbar.Toggle />
-					<DarkThemeToggle />
+					<DarkThemeToggle className="rounded-full" />
 				</div>
 				<Navbar.Collapse>
 					<Navbar.Link href="/" active>
